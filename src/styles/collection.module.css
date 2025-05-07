@@ -1,0 +1,20 @@
+.players_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grrid-template-rows: repeat(3, 1fr);
+}
+.box_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.no_players {
+
+}
+.player_button {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
