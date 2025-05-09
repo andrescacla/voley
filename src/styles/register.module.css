@@ -104,3 +104,12 @@
     color: red;
     font-size: 1.2rem;
 }
+.form_control span {
+    color: red;
+    font-size: 0.7rem;
+}
+
+.input_error{
+    border: 1px solid red;
+    background-color: #fdd;
+}

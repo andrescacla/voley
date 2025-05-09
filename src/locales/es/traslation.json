@@ -13,6 +13,15 @@
     "position": "Posición",
     "number": "Número del jugador",
     "team": "Equipo",
-    "submit": "Registrar jugador"
+    "submit": "Registrar jugador",
+    "inputError": "Este campo es obligatorio",
+    "minError": "El nombre debe tener mas de 3 caracteres",
+    "maxError": "El nombre no puede tener mas de 40 caracteres",
+    "numberError": "El número del jugador debe ser un número entre 1 y 99",
+    "setter": "Armador",
+    "opposite": "Opuesto",
+    "outside": "Extremo",
+    "middle": "Central",
+    "libero": "Libero"
   }
 }
