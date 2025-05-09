@@ -5,6 +5,8 @@ import {
   RouterProvider
 } from "react-router";
 import router from './router/RouterProvider.tsx';
+import './i18n';
+import './styles/global.css'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <DataProvider>

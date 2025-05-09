@@ -1,0 +1,18 @@
+{
+  "home": {
+    "title": "Piloto toma de estadisticas",
+    "description": "Aplicación para la toma de estadisticas de jugadores de volibol",
+    "button": "Comenzar"
+
+  },
+  "register": {
+    "title": "Registro de jugadores",
+    "description": "Formulario para registrar jugadores",
+    "fullname": "Nombre completo",
+    "age": "Edad",
+    "position": "Posición",
+    "number": "Número del jugador",
+    "team": "Equipo",
+    "submit": "Registrar jugador"
+  }
+}
