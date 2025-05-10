@@ -23,6 +23,13 @@
     "outside": "Extremo",
     "middle": "Central",
     "libero": "Libero",
-    "select": "Selecciona una posición"
+    "select": "Selecciona una posición",
+    "success": "Jugador registrado con éxito",
+    "error": "Error al registrar el jugador",
+    "table": {
+      "numberPlayer": "No.",
+      "player": "Jugador",
+      "position": "Posición"
+    }
   }
 }

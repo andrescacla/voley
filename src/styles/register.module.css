@@ -113,3 +113,8 @@
     border: 1px solid red;
     background-color: #fdd;
 }
+.section_info {
+    display:flex;
+    justify-content: center;
+    margin-top: 2rem;
+}

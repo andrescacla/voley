@@ -5,9 +5,14 @@ import { useDataContext } from '../hooks/useData'
 // import { InitialForm } from '../interface/player.interface'
 import { useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next'
-import { Formik, Form } from 'formik'
+import { Formik, Form, FormikHelpers } from 'formik'
 import { TextInput, Select } from '../components'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import { InitialForm } from '../interface/player.interface'
+import { TableData } from '../components/TableData'
 
+const MySwal = withReactContent(Swal)
 export interface PlayerActions {
     id: number,
     name: string
@@ -54,11 +59,61 @@ export const RegisterPage = () => {
     // const { onInputChange, formState } = useForm<InitialForm>({ player: '', number: '', position: '' })
     // const { player, number, position } = values
     const { players } = data
+    const validatePosition = (position: string) => {
+        switch (position) {
+            case '1':
+                return t('setter')
+            case '2':
+                return t('middle')
+            case '3':
+                return t('opposite')
+            case '4':
+                return t('outside')
+            case '5':
+                return t('libero')
+            default:
+                return ''
+        }
+    }
 
-    // const onSavePlayer = (e: React.FormEvent<HTMLFormElement>) => {
-    //     e.preventDefault()
+    const onSavePlayer = ({number, player, position}: InitialForm, {resetForm}: FormikHelpers<InitialForm>) => {
+        const positionPlayer = validatePosition(position)
+        setPlayer({
+            id: Date.now(),
+            name: player,
+            statistics: [],
+            number,
+            position: positionPlayer
+        })
+        MySwal.fire({
+            title: <strong>{t('success')}</strong>,
+            didOpen: () => {
+              MySwal.showLoading()
+            },
+            timer: 300,
+            // icon: 'success',
+            // showCloseButton: true,
+            // showCancelButton: false,
+            // focusConfirm: false,
+            // confirmButtonText: t('ok'),
+            // confirmButtonAriaLabel: t('ok')
+          }).then(() => {
+            resetForm()
+            return MySwal.fire({
+              title: <strong>{t('success')}</strong>,
+              // text: t('successText'),
+              timer: 1000,
+              icon: 'success',
+              showCloseButton: false,
+              showCancelButton: false,
+              showConfirmButton: false,
+              focusConfirm: false,
+              // confirmButtonText: t('ok'),
+              // confirmButtonAriaLabel: t('ok')
+            })
+          })
 
-    // }
+    }
 
     const onContinue = () => {
         navigate('/collects-statistics')
@@ -75,16 +130,7 @@ export const RegisterPage = () => {
                         number: '',
                         position: ''
                     }}
-                    onSubmit={({ player, number, position }) => {
-                        // console.log(values)
-                        setPlayer({
-                            id: Date.now(),
-                            name: player,
-                            statistics: [],
-                            number,
-                            position
-                        })
-                    }}
+                    onSubmit={onSavePlayer}
                     validationSchema={Yup.object({
                         player: Yup.string()
                             .required(t('required'))
@@ -185,7 +231,10 @@ export const RegisterPage = () => {
 
 
             </section>
+            <section className={register.section_info}>
 
+                <TableData />
+            </section>
 
 
         </>
