@@ -25,3 +25,24 @@ export interface InitialForm {
     number: string,
     position: string
 }
+type typeInput = 'text' | 'email' | 'password' | 'number' 
+export interface TextInputProps{
+  label: string,
+  name:string,
+  type?: typeInput,
+  placeholder?: string,
+  className?: string,
+  errorClassName?: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [x: string]: any
+}
+
+export interface SelectProps {
+  label: string,
+  name: string,
+  className?: string,
+  errorClassName?: string,
+  // options: Array<{ value: string, label: string }>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [x: string]: any
+}
