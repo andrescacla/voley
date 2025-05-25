@@ -15,7 +15,8 @@ const router = createBrowserRouter([
   {
     path: "/collects-statistics",
     element: <CollectsStatistcsPage />,
-  }
+  },
+  
 ], {
   basename: '/voley/',
 });

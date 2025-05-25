@@ -1,7 +1,7 @@
 import { InitialState } from "./DataContext";
 
 const initialState: InitialState = {
-    players: []
+    players: [],
 
 }
 

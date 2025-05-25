@@ -4,6 +4,7 @@ import { dataReducer } from "./DataReducer";
 import initialState from "./DataState";
 import { Player } from "../../interface/player.interface";
 
+
 export interface DataProviderProps {
   children: React.ReactNode | React.ReactNode[];
 }
@@ -20,12 +21,16 @@ export const DataProvider = ({ children }: DataProviderProps) => {
       payload: player
     })
   }
+  
+  
+
+ 
 
   return (
     <DataContext.Provider
       value={{
         data: dataState,
-        setPlayer
+        setPlayer,
       }}>
       {children}
     </DataContext.Provider>
