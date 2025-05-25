@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import collections from '../styles/collection.module.css'
-import { PlayerActions } from './RegisterPage'
+import { PlayerActions } from './register/RegisterPage'
 import { useDataContext } from '../hooks/useData'
 
 export const CollectsStatistcsPage = () => {

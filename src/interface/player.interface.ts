@@ -27,7 +27,8 @@ export interface InitialForm {
 }
 type typeInput = 'text' | 'email' | 'password' | 'number' 
 export interface TextInputProps{
-  label: string,
+  labelOption?: LabelOption,
+
   name:string,
   type?: typeInput,
   placeholder?: string,
@@ -36,9 +37,14 @@ export interface TextInputProps{
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [x: string]: any
 }
+interface LabelOption {
+  activeLabel?: boolean,
+  label: string,
+  className?: string
+}
 
 export interface SelectProps {
-  label: string,
+  labelOption?: LabelOption,
   name: string,
   className?: string,
   errorClassName?: string,

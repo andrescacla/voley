@@ -1,3 +1,3 @@
 export * from './CollectsStatistcsPage';
 export * from './HomePage';
-export * from './RegisterPage';
+export * from './register/RegisterPage';
