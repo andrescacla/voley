@@ -117,7 +117,7 @@ export const RegisterPage = () => {
     }
 
     const onContinue = () => {
-        navigate('/collects-statistics')
+        navigate('/volleyball_court')
     }
 
 

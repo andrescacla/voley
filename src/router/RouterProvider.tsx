@@ -1,7 +1,7 @@
 import {
   createBrowserRouter,
 } from "react-router";
-import { RegisterPage, HomePage, CollectsStatistcsPage } from "../pages";
+import { RegisterPage, HomePage, VolleyballCourt  } from "../pages";
 
 const router = createBrowserRouter([
   {
@@ -13,8 +13,8 @@ const router = createBrowserRouter([
     element: <RegisterPage />,
   },
   {
-    path: "/collects-statistics",
-    element: <CollectsStatistcsPage />,
+    path: "/volleyball_court",
+    element: <VolleyballCourt onBack={() => {}}/>,
   },
   
 ], {
