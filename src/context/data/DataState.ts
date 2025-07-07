@@ -52,6 +52,36 @@ const initialState: InitialState = {
             statistics: []
         },
     ],
+    positions: [
+        {
+            id: 4,
+            name: 'Central 1'
+        },
+        {
+            id: 1,
+            name: 'Central 2'
+        },
+        {
+            id: 2,
+            name: 'Armador'
+        },
+        {
+            id: 5,
+            name: 'Opuesto'
+        },
+        {
+            id: 3,
+            name: 'Extremo 1'
+        },
+        {
+            id: 6,
+            name: 'Extremo 2'
+        },
+        {
+            id: 7,
+            name: 'Libero'
+        }
+    ]
 
 }
 

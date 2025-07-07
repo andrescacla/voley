@@ -19,7 +19,10 @@ export interface Player {
     position: string,
     statistics: Statistics []
 }
-
+export interface Position {
+    id: number,
+    name: string
+}
 export interface InitialForm {
     player: string,
     number: string,

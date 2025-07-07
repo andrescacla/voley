@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/volleyball_court",
-    element: <VolleyballCourt onBack={() => {}}/>,
+    element: <VolleyballCourt />,
   },
   
 ], {

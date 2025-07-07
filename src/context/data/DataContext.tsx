@@ -1,8 +1,9 @@
 import { createContext } from "react";
-import { Player } from "../../interface/player.interface";
+import { Player, Position } from "../../interface/player.interface";
 
 export interface InitialState {
     players: Player [],
+    positions: Position[]
 }
 
 export interface DataContextProps {

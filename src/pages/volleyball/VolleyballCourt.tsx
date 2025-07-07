@@ -82,8 +82,12 @@
 
 
 // import { ArrowLeft } from "lucide-react"
+import { useNavigate } from "react-router"
 import { useDataContext } from "../../hooks/useData"
 import styles from "../../styles/volleyball.module.css"
+import { MouseEvent, useState } from "react"
+import { Player } from "../../interface/player.interface"
+// import { MouseEventHandler } from "react"
 
 // interface Player {
 //   id: number
@@ -92,17 +96,11 @@ import styles from "../../styles/volleyball.module.css"
 //   position: string
 // }
 
-interface VolleyballCourtProps {
-  // players: Player[]
-  onBack: () => void
-}
-
-export const VolleyballCourt = ({ onBack }: VolleyballCourtProps) => {
-  // Limitar a máximo 7 jugadores
-  const {data} = useDataContext()
-  const { players } = data
-  // Asignar posiciones en la cancha (6 posiciones principales + 1 líbero)
-  const courtPositions = [
+// interface VolleyballCourtProps {
+//   // players: Player[]
+//   // onBack: () => void
+// }
+const courtPositions = [
     { id: 1, name: "Zaguero Derecho", className: styles.position1 },
     { id: 2, name: "Delantero Derecho", className: styles.position2 },
     { id: 3, name: "Delantero Central", className: styles.position3 },
@@ -110,7 +108,27 @@ export const VolleyballCourt = ({ onBack }: VolleyballCourtProps) => {
     { id: 5, name: "Zaguero Izquierdo", className: styles.position5 },
     { id: 6, name: "Zaguero Central", className: styles.position6 },
   ]
+export const VolleyballCourt = () => {
+  // Limitar a máximo 7 jugadores
+  const navigate = useNavigate()
+  const {data} = useDataContext()
+  const { players, positions } = data
 
+  const [playerSelected, setPlayerSelected] = useState<Player>()
+  
+
+  const onBack = () => {
+    navigate("/register")
+  }
+  const onSelectPlayer = (event: MouseEvent<HTMLDivElement>, player: Player) => {
+    console.log({event})
+    const target = event.target as HTMLDivElement
+
+    
+    // setPlayerSelected()
+    console.log({})
+
+  }
   return (
     <div className={styles.courtContainer}>
       <div className={styles.header}>
@@ -127,24 +145,15 @@ export const VolleyballCourt = ({ onBack }: VolleyballCourtProps) => {
           <div className={styles.net}></div>
 
           <div className={styles.playersGrid}>
-            {courtPositions.map((position, index) => (
-              <div key={position.id} className={`${styles.playerPosition} ${position.className}`}>
-                {players[index] ? (
-                  <div
-                    className={`${styles.player} ${players[index].position === "Líbero" ? styles.libero : ""}`}
-                    title={`${players[index].name} - ${players[index].position}`}
-                  >
-                    {players[index].number}
-                  </div>
-                ) : (
-                  <div className={styles.emptyPosition}>{position.id}</div>
-                )}
+            {positions.map((position, index) => (
+              <div key={position.id} className={`${styles.playerPosition}`}>
+                {position.id}
               </div>
             ))}
           </div>
 
           {/* Posición del líbero (7mo jugador) */}
-          {players[6] && (
+          {/* {players[6] && (
             <div className={styles.liberoPosition}>
               <div
                 className={`${styles.player} ${styles.libero}`}
@@ -153,7 +162,7 @@ export const VolleyballCourt = ({ onBack }: VolleyballCourtProps) => {
                 {players[6].number}
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
 
